@@ -1,62 +1,183 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WORKS TOWN - iDEAS365</title>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * { box-sizing: border-box; }
-        :root { --bg-color: #FBBC05; --text-dark: #1A1A1A; }
-        body, html { margin: 0; padding: 0; width: 100%; min-height: 100vh; font-family: 'Prompt', sans-serif; background-color: var(--bg-color); color: var(--text-dark); }
-        
-        .nav-header { position: absolute; top: 0; left: 0; width: 100%; padding: 25px 40px; display: flex; justify-content: space-between; align-items: center; z-index: 100; }
-        .logo-img { height: 45px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2)); transition: transform 0.3s; }
-        .logo-img:hover { transform: scale(1.05); }
-        .map-btn { background: #ffffff; color: var(--text-dark); text-decoration: none; padding: 8px 24px; border-radius: 30px; font-weight: 700; font-size: 14px; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: transform 0.2s; }
-        .map-btn:hover { transform: scale(1.05); }
-
-        .main-content { display: flex; flex-direction: column; align-items: center; padding: 120px 20px 60px; max-width: 1000px; margin: 0 auto; }
-        .page-title { font-family: 'Anton', sans-serif; font-size: clamp(4rem, 10vw, 7.5rem); text-align: center; line-height: 0.9; margin: 0 0 15px 0; text-transform: uppercase; letter-spacing: 1px; }
-        .page-subtitle { font-size: 1.15rem; font-weight: 400; margin: 0 0 50px 0; text-align: center; }
-        
-        /* 🎴 CARD (สีดำ 2 คอลัมน์) */
-        .content-card { background: #1A1A1A; border-radius: 20px; width: 100%; padding: 50px; color: #ffffff; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; box-shadow: 0 15px 35px rgba(0,0,0,0.15); }
-        .col-title { font-family: 'Anton', sans-serif; font-size: 2.2rem; color: var(--bg-color); margin: 0 0 20px 0; padding-bottom: 15px; border-bottom: 2px solid var(--bg-color); text-transform: uppercase; letter-spacing: 0.5px; }
-        .col-list { list-style: none; padding: 0; margin: 0; }
-        .col-list li { font-size: 1rem; line-height: 1.7; font-weight: 300; margin-bottom: 15px; position: relative; padding-left: 15px; }
-        .col-list li::before { content: "•"; position: absolute; left: 0; color: #ffffff; font-weight: 600; }
-        .col-list strong { font-weight: 600; color: #ffffff; }
-
-        @media(max-width: 768px) { .content-card { grid-template-columns: 1fr; padding: 30px; gap: 30px; } .nav-header { padding: 15px 20px; } }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WORKS TOWN — iDEAS365</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Prompt',sans-serif;color:#111;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;width:100%;padding:18px 40px;display:flex;justify-content:space-between;align-items:center;z-index:999;background:rgba(240,175,0,0.96);backdrop-filter:blur(8px)}
+.logo img{height:36px;display:block}
+.map-btn{background:#111;color:#fff;text-decoration:none;padding:8px 22px;border-radius:30px;font-weight:700;font-size:12px;letter-spacing:1px;display:flex;align-items:center;gap:6px;font-family:'Anton',sans-serif}
+.globe{width:13px;height:13px;border-radius:50%;background:linear-gradient(135deg,#4285F4 40%,#34A853 100%);flex-shrink:0}
+.section{min-height:100vh;display:flex;align-items:flex-start;padding:100px 40px 80px}
+.inner{max-width:960px;width:100%;margin:0 auto}
+.s1{background:#FBBC05}
+.s2{background:#e8ac00}
+.s3{background:#f5b800}
+.lbl{font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:rgba(0,0,0,0.5);margin-bottom:10px;font-weight:600}
+.ttl{font-family:'Anton',sans-serif;font-size:clamp(2.4rem,5vw,3.8rem);line-height:.9;text-transform:uppercase;margin-bottom:22px;color:#111}
+.bar{width:36px;height:3px;background:#111;margin-bottom:22px}
+p{font-size:.93rem;line-height:1.85;font-weight:300;margin-bottom:12px;color:#222}
+p strong{font-weight:700}
+/* CASE STUDY BOX */
+.cs-box{background:rgba(0,0,0,0.08);border-left:4px solid #111;border-radius:0 8px 8px 0;padding:24px 28px;margin-top:8px}
+.cs-label{font-size:.68rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;opacity:.5;margin-bottom:8px}
+.cs-title{font-family:'Anton',sans-serif;font-size:1.3rem;margin-bottom:14px}
+.cs-row{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:20px}
+.cs-col-title{font-weight:700;font-size:.8rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;opacity:.6}
+.cs-item{font-size:.85rem;line-height:1.7;font-weight:300;padding:7px 0;border-bottom:1px solid rgba(0,0,0,.07);padding-left:14px;position:relative}
+.cs-item::before{content:"→";position:absolute;left:0;font-weight:700;opacity:.5}
+.result-pill{display:inline-block;background:#111;color:#FBBC05;padding:4px 14px;border-radius:5px;font-weight:700;font-size:.82rem;margin:4px 4px 4px 0}
+/* TOOLS GRID */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-top:16px}
+.card{background:rgba(0,0,0,0.08);border:1px solid rgba(0,0,0,.1);border-radius:10px;padding:18px 16px;text-decoration:none;color:#111;transition:background .2s,transform .2s;display:block}
+.card:hover{background:rgba(0,0,0,.14);transform:translateY(-3px)}
+.card-tag{display:inline-block;padding:2px 10px;border-radius:8px;font-size:.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:9px}
+.tag-ai{background:#111;color:#FBBC05}
+.tag-biz{background:#333;color:#fff}
+.tag-live{background:#cc0000;color:#fff}
+.tag-soon{background:rgba(0,0,0,.12);color:rgba(0,0,0,.4)}
+.card-title{font-family:'Anton',sans-serif;font-size:.95rem;letter-spacing:.5px;margin-bottom:5px;line-height:1.2}
+.card-th{font-size:.8rem;color:rgba(0,0,0,.6);line-height:1.5}
+.card-status{margin-top:8px;font-size:.68rem;letter-spacing:1px;text-transform:uppercase;color:rgba(0,0,0,.3)}
+.card-status.live::before{content:"● ";color:#1a7a3c}
+.card-status.soon::before{content:"◌ "}
+.sec-title{font-family:'Anton',sans-serif;font-size:.85rem;letter-spacing:2px;text-transform:uppercase;color:rgba(0,0,0,.55);margin:28px 0 14px}
+@media(max-width:768px){.inner{width:100%}.section{padding:88px 20px 56px}nav{padding:15px 20px}.cs-row{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}}
+</style>
 </head>
 <body>
-    <header class="nav-header">
-        <a href="index.html">
-            <img src="https://ik.imagekit.io/ideas365logo/ideas365-logo.png?updatedAt=1771192801056" alt="iDEAS365 Logo" class="logo-img">
-        </a>
-        <a href="index.html" class="map-btn">MAP 🌍</a>
-    </header>
-    <main class="main-content">
-        <h1 class="page-title">WORKS<br>TOWN</h1>
-        <p class="page-subtitle">Ideas Pioneering, We Engineering.</p>
-        <div class="content-card">
-            <div class="col">
-                <h2 class="col-title">ASTROLOGY & TOOLS</h2>
-                <ul class="col-list">
-                    <li><strong>Soul Cards:</strong> ระบบเลือกไพ่ 3 ใบเพื่อไกด์ไลน์คำตอบ</li>
-                    <li><strong>KAIXIN:</strong> ระบบค้นหา Energy Crystal</li>
-                </ul>
-            </div>
-            <div class="col">
-                <h2 class="col-title">COMMERCE & SYSTEMS</h2>
-                <ul class="col-list">
-                    <li><strong>Video Production:</strong> บริการผลิตวิดีโอสินค้า</li>
-                    <li><strong>Strategy Consulting:</strong> แผนธุรกิจที่มีตัวเลขจริง</li>
-                </ul>
-            </div>
+<nav>
+  <a class="logo" href="index.html"><img src="https://ik.imagekit.io/ideas365logo/ideas365-logo.png?updatedAt=1771192801056" alt="iDEAS365"></a>
+  <a href="index.html" class="map-btn"><span class="globe"></span> MAP</a>
+</nav>
+
+<section class="section s1">
+  <div class="inner">
+    <div class="lbl">01 · Featured Case Study</div>
+    <h1 class="ttl">WORKS<br>TOWN</h1>
+    <div class="bar"></div>
+    <p>ผลงานในหน้านี้ไม่ได้เลือกมาเพราะดูดี แต่เลือกมาเพราะมันแสดงให้เห็นว่าระบบทำงานอย่างไรในโลกจริง ทุกชิ้นมีที่มา มีปัญหาที่ต้องแก้ และมีผลลัพธ์ที่วัดได้</p>
+
+    <div class="cs-box">
+      <div class="cs-label">📌 Case Study</div>
+      <div class="cs-title">Jenny Jyne Live Commerce</div>
+      <p style="font-size:.88rem;opacity:.75">ความท้าทาย: เปิดช่องทางขายผ่านไลฟ์ตั้งแต่ต้น โดยไม่มีประสบการณ์มาก่อน ไม่มีสคริปต์ ไม่มีทีม และไม่มีระบบอะไรให้ยึด</p>
+      <div class="cs-row">
+        <div>
+          <div class="cs-col-title">สิ่งที่สร้างขึ้น</div>
+          <div class="cs-item">กลยุทธ์การคัดสินค้าตามพฤติกรรมคนดู จังหวะตัดสินใจ และแต่ละแพลตฟอร์ม</div>
+          <div class="cs-item">Script Framework ที่โฮสต์คนไหนก็ใช้ได้ ไม่ผูกติดกับพรสวรรค์ของใคร</div>
+          <div class="cs-item">Technical Setup — แสง มุมกล้อง แพลตฟอร์มที่ทำซ้ำได้เสมอ</div>
+          <div class="cs-item">Host Training & Transfer จนทีมรันได้เองโดยไม่ต้องรอ Jyne</div>
         </div>
-    </main>
+        <div>
+          <div class="cs-col-title">ผลลัพธ์</div>
+          <div class="cs-item"><strong>ยอดขาย 6 หลักใน 2 ชั่วโมง</strong></div>
+          <div class="cs-item">รูปแบบที่ทำซ้ำได้ — ผลลัพธ์สม่ำเสมอ ไม่ใช่โชค</div>
+          <div class="cs-item">ทีมรันเองได้อย่างอิสระ (Transfer Ownership)</div>
+          <div style="margin-top:12px">
+            <span class="result-pill">TikTok LIVE</span>
+            <span class="result-pill">Facebook</span>
+            <span class="result-pill">Shopee</span>
+            <span class="result-pill">BBL</span>
+            <span class="result-pill">Big C TH</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section s2">
+  <div class="inner">
+    <div class="lbl">02 · AI Tools</div>
+    <h2 class="ttl">AI<br>TOOLS</h2>
+    <div class="bar"></div>
+    <p>เครื่องมือเหล่านี้ไม่ได้สร้างขึ้นเพื่อโชว์ทักษะ แต่เพราะมีความต้องการจริงและอยากทดสอบว่า AI จะตอบได้ดีแค่ไหน</p>
+    <div class="grid">
+      <a class="card" href="https://soul-card-oracle.lovable.app/" target="_blank">
+        <div class="card-tag tag-ai">AI</div>
+        <div class="card-title">Soul Cards</div>
+        <div class="card-th">ไพ่ Oracle ระบบเลือกไพ่ 3 ใบจาก 36 ใบ เพื่อรับแนวทางการตอบคำถามในชีวิต</div>
+        <div class="card-status live">Live</div>
+      </a>
+      <a class="card" href="https://the-soul-weaver.lovable.app/" target="_blank">
+        <div class="card-tag tag-ai">AI</div>
+        <div class="card-title">The Soul Weaver</div>
+        <div class="card-th">คำทำนายดวงชะตาตามโหราศาสตร์ตะวันตก พร้อมเสียงบรรยายจาก AI</div>
+        <div class="card-status live">Live</div>
+      </a>
+      <a class="card" href="https://kaisin-e3aeho.manus.space/" target="_blank">
+        <div class="card-tag tag-ai">AI</div>
+        <div class="card-title">KAIXIN</div>
+        <div class="card-th">ระบบค้นหา Energy Crystal ตามวันเดือนปีเกิด เสริมพลังงานบวก</div>
+        <div class="card-status live">Live</div>
+      </a>
+      <a class="card" href="#" target="_blank">
+        <div class="card-tag tag-ai">AI</div>
+        <div class="card-title">Soul Slot</div>
+        <div class="card-th">สล็อตอักษร Runes 3 ตัวจาก 24 สัญลักษณ์ เพื่อค้นหาทิศทาง</div>
+        <div class="card-status live">Live</div>
+      </a>
+      <a class="card" href="https://ideas365-caption-result.netlify.app/" target="_blank">
+        <div class="card-tag tag-ai">AI</div>
+        <div class="card-title">Caption Factory</div>
+        <div class="card-th">AI สร้างแคปชั่นโซเชียล พร้อมประเมินโอกาส Engagement</div>
+        <div class="card-status live">Live</div>
+      </a>
+      <div class="card">
+        <div class="card-tag tag-soon">SOON</div>
+        <div class="card-title">QR Generator</div>
+        <div class="card-th">สร้าง QR Code พร้อมปรับแต่งให้เข้ากับแบรนด์</div>
+        <div class="card-status soon">Coming Soon</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section s3">
+  <div class="inner">
+    <div class="lbl">03 · Services</div>
+    <h2 class="ttl">BUSINESS<br>TOOLS</h2>
+    <div class="bar"></div>
+    <div class="grid">
+      <a class="card" href="https://event-simulator-roi.netlify.app/" target="_blank">
+        <div class="card-tag tag-biz">BIZ</div>
+        <div class="card-title">Event ROI Calculator</div>
+        <div class="card-th">จำลองการลงทุนและผลตอบแทนก่อนตัดสินใจจัดอีเวนต์</div>
+        <div class="card-status live">Live</div>
+      </a>
+      <div class="card">
+        <div class="card-tag tag-live">LIVE</div>
+        <div class="card-title">Social Commerce Arch</div>
+        <div class="card-th">วางระบบการขายบนโซเชียลแบบครบวงจร เพื่อการเติบโตที่ยั่งยืน</div>
+        <div class="card-status live">Live</div>
+      </div>
+      <div class="card">
+        <div class="card-tag tag-biz">BIZ</div>
+        <div class="card-title">Strategy Consulting</div>
+        <div class="card-th">แผนธุรกิจที่มีตัวเลขจริง ไม่ใช่แค่ความรู้สึกดี</div>
+        <div class="card-status live">Live</div>
+      </div>
+      <div class="card">
+        <div class="card-tag tag-biz">BIZ</div>
+        <div class="card-title">Systems Design</div>
+        <div class="card-th">ระบบที่ขยายตัวได้ตามการเติบโต โดยที่ทีมไม่พัง</div>
+        <div class="card-status live">Live</div>
+      </div>
+      <div class="card">
+        <div class="card-tag tag-live">LIVE</div>
+        <div class="card-title">Video Production</div>
+        <div class="card-th">วิดีโอสินค้า · คลิปสอน · คอนเทนต์โปรโมท</div>
+        <div class="card-status live">Live</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 </body>
 </html>
